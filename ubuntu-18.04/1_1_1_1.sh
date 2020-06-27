@@ -7,9 +7,9 @@ function cis_test_run()
 {
 	set -e
 	chk=$(modprobe -n -v ${kernel_module} | grep -v 'mtd.ko' | grep "^install /bin/true")
-	[ -z "$chk" ] && return ${EXIT_FAILURE}
+	[ -z "$chk" ] && return 1
 	chk=$(lsmod | grep ${kernel_module})
-	[ -n "$chk" ] && return ${EXIT_FAILURE}
-	return ${EXIT_SUCCESS}
+	[ -n "$chk" ] && return 1
+	return 0
 }
 
