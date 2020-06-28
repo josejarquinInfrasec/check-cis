@@ -12,8 +12,10 @@ VERSION : 01
 ---------------------------------------------------------
 <pre>
 This script runs CIS tests in order to see if a given Linux server/workstation is CIS compliant.
-The script allows you to create your own policy, selecting only the CIS tests you need. Also, you can log the results to a file for easy SIEM integration, using KV log format.
-The script can be easily extendend adding the unitary tests for a specific Linux distribution. At the time of writing, only Ubuntu 18.04 CIS 2.0.1 is supported (work in progress).
+The script allows you to create your own policy, selecting only the CIS tests you need.
+Also, you can log the results to a file for easy SIEM integration, using KV log format.
+The script can be easily extendend adding the unitary tests for a specific Linux distribution.
+At the time of writing, only Ubuntu 18.04 CIS 2.0.1 is supported (work in progress).
 </pre>
 
 **EXAMPLES**
