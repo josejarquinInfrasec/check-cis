@@ -28,6 +28,12 @@ Edit policy.conf and remove unneeded tests
 Execute a CIS test using the policy
 check-cis.sh --action execute --cis-policy policy.conf
 
+Execute those tests with workstation applicability from the policy
+check-cis.sh --action execute --cis-policy policy.conf --cis-pa workstation
+
+Execute those tests with profile level 1 from the policy
+check-cis.sh --action execute --cis-policy policy.conf --cis-pl 1
+
 Execute a specific test
 check-cis.sh --action execute --cis-test 1_1_1_1 --verbose
 </pre>
