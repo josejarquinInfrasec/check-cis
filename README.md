@@ -2,9 +2,11 @@
 
 **SCRIPT INFORMATION**
 ---------------------------------------------------------
-AUTHOR  : Ezequiel Larrarte<br>
-DATE    : 2020-06-27<br>
-VERSION : 01<br>
+<pre>
+AUTHOR  : Ezequiel Larrarte
+DATE    : 2020-06-27
+VERSION : 01
+</pre>
 
 **DESCRIPTION**
 This script runs CIS tests in order to see
