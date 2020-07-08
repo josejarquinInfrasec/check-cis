@@ -144,7 +144,7 @@ function get_os_name()
     fi
 
     # Turn os_name to lowercase
-    os_name=${osname,}
+    os_name=${os_name,}
 }
 
 function check_os_support()
