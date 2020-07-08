@@ -109,6 +109,8 @@ function process_cli_opts()
 
 function check_run_params()
 {
+    check_os_support
+
     if [[ ! "${actions_list[@]}" =~ "${action}" ]]; then
         echo "ERROR: unknown action [${action}]"
         help
@@ -135,23 +137,10 @@ function check_run_params()
     fi
 }
 
-function get_os_name()
-{
-    if [ -e /etc/redhat-release ]; then
-        os_name=$(rpm -q centos-release | perl -ne '/(centos)-release-(\d)-.*/ && print "$1-$2\n"')
-    elif [ -e /etc/debian_version ]; then
-        os_name="$(lsb_release -is)-$(lsb_release -rs)"
-    fi
-
-    # Turn os_name to lowercase
-    os_name=${osname,}
-}
-
 function check_os_support()
 {
-    get_os_name
-
-    if [ -z "${os_name}" -o ! -d "${run_path}/${os_name}" ]; then
+    os_name="$(lsb_release -is)-$(lsb_release -rs)"
+    if [ ! -d "${os_name,}" ]; then
         echo "ERROR: unsupported OS [${os_name}]"
         exit ${EXIT_SUCCESS}
     fi
@@ -229,8 +218,6 @@ actions_list=(list execute)
 cis_pas_list=(server workstation)
 # Available CIS profile levels
 cis_pls_list=(1 2)
-# Run PATH (where to find script files)
-run_path=$(dirname $0)
 
 # Process CLI options
 process_cli_opts $@
@@ -242,9 +229,6 @@ process_cli_opts $@
 
 # Check run parameters
 check_run_params
-
-# Check OS support
-check_os_support
 
 # Execute script action
 action_${action}
