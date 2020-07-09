@@ -102,6 +102,7 @@ function process_cli_opts()
 
             --only-fail)
                 only_fail=${TRUE}
+                shift
             ;;
 
             --)
