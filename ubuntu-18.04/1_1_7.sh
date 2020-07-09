@@ -5,8 +5,8 @@ cis_test_pl=2
 
 function cis_test_run()
 {
-	chk=$(mount | grep -E "\s${partition}\s")
-	[ -z "$chk" ] && return 1
+	cmd=$(mount | grep -E "\s${partition}\s")
+	[ -z "$cmd" ] && return 1
 	return 0
 }
 

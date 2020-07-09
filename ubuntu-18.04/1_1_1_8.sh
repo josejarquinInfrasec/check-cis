@@ -6,18 +6,18 @@ cis_test_pl=2
 function cis_test_run()
 {
 	# check UEFI
-	chk=$(grep '/boot/efi' /etc/fstab)
-	if [ -z "$chk" ]; then
+	cmd=$(grep '/boot/efi' /etc/fstab)
+	if [ -z "$md" ]; then
 		# UEFI disabled
-		chk=$(modprobe -n -v ${kernel_module} | grep -v 'crc-itu-t.ko' | grep "^install /bin/true")
-		[ -z "$chk" ] && return 1
-		chk=$(lsmod | grep ${kernel_module})
-		[ -n "$chk" ] && return 1
-		return 0
+		cmd=$(modprobe -n -v ${kernel_module} | grep -v crc-itu-t)
+		[ "$cmd" != "install /bin/true " ] && return 1
+		cmd=$(lsmod | grep ${kernel_module})
+		[ -n "$cmd" ] && return 1
 	else
 		# UEFI enabled
-		chk=$(grep -E -i "\s${kernel_module}\s" /etc/fstab)
-		[ -z "$chk" ] && return 1
+		cmd=$(grep -E -i "\s${kernel_module}\s" /etc/fstab)
+		[ -z "$cmd" ] && return 1
 	fi
+	return 0
 }
 

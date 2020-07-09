@@ -4,10 +4,10 @@ cis_test_pl=1
 
 function cis_test_run()
 {
-	chk=$(systemctl is-enabled tmp.mount)
-	[ "$chk" != "enabled" ] && return 1
-	chk=$(mount | grep -E '\s/tmp\s')
-	[ -z "$chk" ] && return 1
+	cmd=$(systemctl is-enabled tmp.mount)
+	[ "$cmd" != "enabled" ] && return 1
+	cmd=$(mount | grep -E '\s/tmp\s')
+	[ -z "$cmd" ] && return 1
 	return 0
 }
 

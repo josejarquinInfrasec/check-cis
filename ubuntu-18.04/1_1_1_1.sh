@@ -5,11 +5,9 @@ cis_test_pl=1
 
 function cis_test_run()
 {
-	set -e
-	chk=$(modprobe -n -v ${kernel_module} | grep -v 'mtd.ko' | grep "^install /bin/true")
-	[ -z "$chk" ] && return 1
-	chk=$(lsmod | grep ${kernel_module})
-	[ -n "$chk" ] && return 1
+	cmd=$(modprobe -n -v ${kernel_module} | grep -v mtd)
+	[ "$cmd" != "install /bin/true " ] && return 1
+	cmd=$(lsmod | grep cramfs)
+	[ -n "$cmd" ] && return 1
 	return 0
 }
-
