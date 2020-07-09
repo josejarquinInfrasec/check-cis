@@ -236,6 +236,7 @@ run_path=$(dirname $0)
 process_cli_opts $@
 
 # Set default options
+[ -z "${action}" ] && help
 [ -z "${cis_pa}" ] && cis_pa=${def_cis_pa}
 [ -z "${cis_pl}" ] && cis_pl=${def_cis_pl}
 [ -z "${verbose}" ] && verbose=${FALSE}
