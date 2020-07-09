@@ -1,6 +1,6 @@
 partition="/tmp"
 mount_option="nodev"
-cis_test_name="ensure ${mount_opt} option set on ${partition} partition"
+cis_test_name="ensure ${mount_option} option set on ${partition} partition"
 cis_test_pa=(server workstation)
 cis_test_pl=1
 
