@@ -198,12 +198,12 @@ function process_test()
 function loop_tests()
 {
     if [ -z "${cis_policy_file}" ]; then
-        for cis_test_file in ${os_name,}/*; do
+        for cis_test_file in ${run_path}/${os_name}/*; do
             process_test
         done
     else
         for cis_test_id in $(cat ${cis_policy_file} | cut -d'-' -f1); do
-            cis_test_file=${os_name,}/${cis_test_id}.sh
+            cis_test_file=${run_path}/${os_name}/${cis_test_id}.sh
             process_test
         done
     fi
@@ -217,7 +217,7 @@ function action_list()
 function action_execute()
 {
     if [ -n "${cis_test_id}" ]; then
-        cis_test_file=${os_name,}/${cis_test_id}.sh
+        cis_test_file=${run_path}/${os_name}/${cis_test_id}.sh
         process_test
     else
         loop_tests
