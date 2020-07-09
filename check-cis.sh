@@ -197,6 +197,12 @@ function process_test()
     if [ -e "${cis_test_file}" ]; then
         cis_test_id=$(basename $cis_test_file | cut -d'.' -f1)
         source ${cis_test_file}
+        
+        case "${cis_pa}" in
+            workstation)    cis_test_pl=${cis_test_spl} ;;
+            server)         cis_test_pl=${cis_test_wpl} ;;
+        esac
+        
         if [[ "${cis_test_pa[@]}" =~ "${cis_pa}" ]]; then
             if [ ${cis_test_pl} -le ${cis_pl} ]; then
                 process_test_${action}
