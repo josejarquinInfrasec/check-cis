@@ -109,6 +109,12 @@ function process_cli_opts()
 
 function check_run_params()
 {
+    # Set default options
+    [ -z "${action}" ] && help
+    [ -z "${cis_pa}" ] && cis_pa=${def_cis_pa}
+    [ -z "${cis_pl}" ] && cis_pl=${def_cis_pl}
+    [ -z "${verbose}" ] && verbose=${FALSE}
+
     if [[ ! "${actions_list[@]}" =~ "${action}" ]]; then
         echo "ERROR: unknown action [${action}]"
         help
@@ -231,22 +237,12 @@ cis_pas_list=(server workstation)
 cis_pls_list=(1 2)
 # Run PATH (where to find script files)
 run_path=$(dirname $0)
-
 # Process CLI options
 process_cli_opts $@
-
-# Set default options
-[ -z "${action}" ] && help
-[ -z "${cis_pa}" ] && cis_pa=${def_cis_pa}
-[ -z "${cis_pl}" ] && cis_pl=${def_cis_pl}
-[ -z "${verbose}" ] && verbose=${FALSE}
-
 # Check run parameters
 check_run_params
-
 # Check OS support
 check_os_support
-
 # Execute script action
 action_${action}
 
