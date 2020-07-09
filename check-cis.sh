@@ -178,7 +178,7 @@ function process_test_execute()
         #(set -e ; cis_test_run 2>/dev/null)
         cis_test_run 2>/dev/null
     fi
-    [ $? -eq ${EXIT_SUCCESS} ] && cist_test_status="SUCCESS" || cis_test_status="FAILURE"
+    [ $? -eq ${EXIT_SUCCESS} ] && cis_test_status="SUCCESS" || cis_test_status="FAILURE"
     echo "TEST=${cis_test_id}-${cis_test_name} STATUS=${cis_test_status}"
 }
 
