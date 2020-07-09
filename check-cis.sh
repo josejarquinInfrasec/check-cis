@@ -179,7 +179,7 @@ function process_test_execute()
         cis_test_run 2>/dev/null
     fi
     [ $? -eq ${EXIT_SUCCESS} ] && cis_test_status="SUCCESS" || cis_test_status="FAILURE"
-    echo "TEST=${cis_test_id}-${cis_test_name} STATUS=${cis_test_status}"
+    echo "CIS_TEST_ID=${cis_test_id} CIS_TEST_NAME=${cis_test_name} CIS_TEST_STATUS=${cis_test_status}"
 }
 
 function process_test()
