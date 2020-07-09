@@ -187,7 +187,7 @@ function process_test_execute()
     fi
     [ $? -eq ${EXIT_SUCCESS} ] && cis_test_status="SUCCESS" || cis_test_status="FAILURE"
 
-    if [[ ($only_fail -eq $FALSE) || ($only_fail -eq $TRUE && $cis_test_status -eq $EXIT_SUCCESS) ]]; then
+    if [[ ($only_fail -eq $FALSE) || ($only_fail -eq $TRUE && $cis_test_status -eq $EXIT_FAILURE) ]]; then
         echo "CIS_TEST_ID=\"${cis_test_id}\" CIS_TEST_NAME=\"${cis_test_name}\" CIS_TEST_STATUS=\"${cis_test_status}\""
     fi
 }
