@@ -1,5 +1,5 @@
 partition="/var/tmp"
-cis_test_name="ensure separate partition exists for ${partition}"
+cis_test_name="Ensure separate partition exists for ${partition} (Scored)"
 cis_test_pa=(server workstation)
 cis_test_pl=2
 

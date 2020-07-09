@@ -1,4 +1,4 @@
-cis_test_name="ensure /tmp is configured"
+cis_test_name="Ensure /tmp is configured (Scored)"
 cis_test_pa=(server workstation)
 cis_test_pl=1
 

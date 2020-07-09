@@ -1,4 +1,4 @@
-partition="/var"
+partition="/var/log/audit"
 cis_test_name="Ensure separate partition exists for ${partition} (Scored)"
 cis_test_pa=(server workstation)
 cis_test_pl=2

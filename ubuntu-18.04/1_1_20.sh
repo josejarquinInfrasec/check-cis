@@ -1,6 +1,6 @@
-partition="/tmp"
+partition="/cdrom"
 mount_option="noexec"
-cis_test_name="Ensure ${mount_option} option set on ${partition} partition (Scored)"
+cis_test_name="Ensure ${mount_option} option set on removable media partitions (Not Scored)"
 cis_test_pa=(server workstation)
 cis_test_pl=1
 

@@ -1,5 +1,5 @@
 kernel_module="vfat"
-cis_test_name="ensure mounting of ${kernel_module} filesystems is limited"
+cis_test_name="Ensure mounting of ${kernel_module} filesystems is limited (Not Scored)"
 cis_test_pa=(server workstation)
 cis_test_pl=2
 

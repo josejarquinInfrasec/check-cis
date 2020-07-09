@@ -1,5 +1,5 @@
-partition="/tmp"
-mount_option="noexec"
+partition="/var/tmp"
+mount_option="nodev"
 cis_test_name="Ensure ${mount_option} option set on ${partition} partition (Scored)"
 cis_test_pa=(server workstation)
 cis_test_pl=1

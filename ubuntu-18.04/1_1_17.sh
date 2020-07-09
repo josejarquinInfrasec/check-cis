@@ -1,4 +1,4 @@
-partition="/tmp"
+partition="/dev/shm"
 mount_option="noexec"
 cis_test_name="Ensure ${mount_option} option set on ${partition} partition (Scored)"
 cis_test_pa=(server workstation)
