@@ -55,13 +55,14 @@ function help()
     echo "--cis-policy  file            Set CIS policy file to use"
     echo "--cis-test    test-id         Execute a specific test (action:execute required)"
     echo "--verbose                     Show verbose output (action:execute required)"
+    echo "--only-fail                   Show only failed tests"
     echo
     exit ${EXIT_SUCCESS}
 }
 
 function process_cli_opts()
 {
-    cli_opts=$(getopt -o ha: -l help,action:,cis-pa:,cis-pl:,cis-policy:,cis-test:,verbose -- "$@")
+    cli_opts=$(getopt -o ha: -l help,action:,cis-pa:,cis-pl:,cis-policy:,cis-test:,verbose,only-fail -- "$@")
     [ $? -ne ${EXIT_SUCCESS} ] && help
 
     eval set -- "${cli_opts}"
@@ -99,6 +100,10 @@ function process_cli_opts()
                 shift
             ;;
 
+            --only-fail)
+                only_fail=${TRUE}
+            ;;
+
             --)
                 shift
                 break
@@ -114,6 +119,7 @@ function check_run_params()
     [ -z "${cis_pa}" ] && cis_pa=${def_cis_pa}
     [ -z "${cis_pl}" ] && cis_pl=${def_cis_pl}
     [ -z "${verbose}" ] && verbose=${FALSE}
+    [ -z "${only_fail}" ] && only_fail=${FALSE}
 
     if [[ ! "${actions_list[@]}" =~ "${action}" ]]; then
         echo "ERROR: unknown action [${action}]"
@@ -179,7 +185,10 @@ function process_test_execute()
         cis_test_run 2>/dev/null
     fi
     [ $? -eq ${EXIT_SUCCESS} ] && cis_test_status="SUCCESS" || cis_test_status="FAILURE"
-    echo "CIS_TEST_ID=\"${cis_test_id}\" CIS_TEST_NAME=\"${cis_test_name}\" CIS_TEST_STATUS=\"${cis_test_status}\""
+
+    if [[ ($only_fail -eq $FALSE) || ($only_fail -eq $TRUE && $cis_test_status -eq $EXIT_SUCCESS) ]]; then
+        echo "CIS_TEST_ID=\"${cis_test_id}\" CIS_TEST_NAME=\"${cis_test_name}\" CIS_TEST_STATUS=\"${cis_test_status}\""
+    fi
 }
 
 function process_test()
