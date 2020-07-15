@@ -11,4 +11,3 @@ function cis_test_run()
 	[ -n "$cmd" ] && return 1
 	return 0
 }
-
