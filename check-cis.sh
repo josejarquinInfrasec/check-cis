@@ -215,7 +215,7 @@ function process_test()
 function loop_tests()
 {
     if [ -z "${cis_policy_file}" ]; then
-        for cis_test_file in ${run_path}/${os_name}/*; do
+        for cis_test_file in $(find ${run_path}/${os_name} -type f -maxdepth 1); do
             process_test
         done
     else
