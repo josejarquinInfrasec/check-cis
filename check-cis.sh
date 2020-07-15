@@ -177,12 +177,9 @@ function process_test_list()
 
 function process_test_execute()
 {
-    #bash -c "${cis_test_file} cis_test_run 2>/dev/null"
     if [ "${verbose}" -eq ${TRUE} ]; then
-        #(set -e ; cis_test_run)
         cis_test_run
     else
-        #(set -e ; cis_test_run 2>/dev/null)
         cis_test_run 2>/dev/null
     fi
     [ $? -eq ${EXIT_SUCCESS} ] && cis_test_status="SUCCESS" || cis_test_status="FAILURE"
@@ -196,6 +193,8 @@ function process_test()
 {
     if [ -e "${cis_test_file}" ]; then
         cis_test_id=$(basename $cis_test_file | cut -d'.' -f1)
+        cis_test_file_custom=${run_path}/${os_name}/custom/${cis_test_id}.sh
+        [ -e "${cis_test_file_custom}" ] && cis_test_file=${cis_test_file_custom}
         source ${cis_test_file}
         
         case "${cis_pa}" in
