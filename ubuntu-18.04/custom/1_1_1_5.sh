@@ -1,4 +1,4 @@
-kernel_module="cramfs"
+kernel_module="hfsplus"
 cis_test_name="Ensure mounting of ${kernel_module} filesystems is disabled (Scored)"
 cis_test_pa=(server workstation)
 cis_test_spl=1
