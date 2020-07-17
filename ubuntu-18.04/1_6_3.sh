@@ -1,8 +1,8 @@
-package_name="autofs"
-cis_test_name="Disable Automounting (Scored)"
+package_name="prelink"
+cis_test_name="Ensure prelink is disabled (Scored)"
 cis_test_pa=(server workstation)
 cis_test_spl=1
-cis_test_wpl=2
+cis_test_wpl=1
 
 function cis_test_run()
 {
