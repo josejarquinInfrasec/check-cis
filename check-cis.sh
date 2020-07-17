@@ -13,7 +13,7 @@
 # only the CIS tests you need. Also, you can log the results
 # to a file for easy SIEM integration.
 # ---------------------------------------------------------
-
+#test
 
 # CONFIGURATION
 # ---------------------------------------------------------
