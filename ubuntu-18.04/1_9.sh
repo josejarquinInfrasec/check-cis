@@ -5,7 +5,7 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=(apt -s dist-upgrade | grep '^Inst' | wc -l)
+	cmd=$(apt -s dist-upgrade | grep '^Inst' | wc -l)
 	[ $cmd -gt 0 ] && return 1
 	return 0
 }
