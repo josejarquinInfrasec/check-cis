@@ -5,7 +5,7 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(grep ^\$FileCreateMode /etc/rsyslog.conf /etc/rsyslog.d/*.conf | grep -v '$FileCreateMode 0640')
+	cmd=$(grep '^\$FileCreateMode' /etc/rsyslog.conf /etc/rsyslog.d/*.conf | grep -v '$FileCreateMode 0640')
 	[ -n "$cmd" ] && return 1
 
 	return 0
