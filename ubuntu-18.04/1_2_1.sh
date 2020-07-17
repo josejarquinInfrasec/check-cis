@@ -7,6 +7,7 @@ function cis_test_run()
 {
 	cmd=$(apt-cache policy | grep -P "500 http://security.ubuntu.com/ubuntu $(lsb_release -cs)-security/(multiverse|universe|restricted|main) amd64 Packages" | wc -l)
 	[ "$cmd" -ne 4 ] && return 1
+	
 	return 0
 }
 

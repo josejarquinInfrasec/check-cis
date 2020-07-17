@@ -7,6 +7,7 @@ function cis_test_run()
 {
 	cmd=$(echo)
 	[ "$cmd" -ne 4 ] && return 1
+	
 	return 0
 }
 

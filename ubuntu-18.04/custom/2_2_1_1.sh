@@ -6,7 +6,8 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(systemctl is-enabled ${service_name})
+	cmd=$(systemctl is-enabled ntp)
 	[ "$cmd" != "enabled" ] && return 1
+	
 	return 0
 }

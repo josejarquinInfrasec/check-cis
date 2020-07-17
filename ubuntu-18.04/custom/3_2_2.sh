@@ -7,19 +7,27 @@ function cis_test_run()
 {
 	cmd=$(sysctl net.ipv4.conf.all.accept_redirects)
 	[ "$cmd" != "net.ipv4.conf.all.accept_redirects = 0" ] && return 1
+
 	cmd=$(sysctl net.ipv4.conf.default.accept_redirects)
 	[ "$cmd" != "net.ipv4.conf.default.accept_redirects = 0" ] && return 1
+
 	cmd=$(grep "net\.ipv4\.conf\.all\.accept_redirects" /etc/sysctl.conf /etc/sysctl.d/* | grep -v "#" | grep -v "net.ipv4.conf.all.accept_redirects = 0")
 	[ -n "$cmd" ] && return 1
+
 	cmd=$(grep "net\.ipv4\.conf\.default\.accept_redirects" /etc/sysctl.conf /etc/sysctl.d/* | grep -v "#" | grep -v "net.ipv4.conf.default.accept_redirects = 0")
 	[ -n "$cmd" ] && return 1
+
 	cmd=$(sysctl net.ipv6.conf.all.accept_redirects 2>&1 | grep "cannot stat")
 	[ -z "$cmd" ] && return 1
+
 	cmd=$(sysctl net.ipv6.conf.default.accept_redirects 2>&1 | grep "cannot stat")
 	[ -z "$cmd" ] && return 1
+
 	cmd=$(grep "net\.ipv6\.conf\.all\.accept_redirects" /etc/sysctl.conf /etc/sysctl.d/* | grep -v "#" | grep -v "net.ipv6.conf.all.accept_redirects = 0")
 	[ -n "$cmd" ] && return 1
+
 	cmd=$(grep "net\.ipv6\.conf\.default\.accept_redirects" /etc/sysctl.conf /etc/sysctl.d/* | grep -v "#" | grep -v "net.ipv6.conf.default.accept_redirects = 0")
 	[ -n "$cmd" ] && return 1
+	
 	return 0
 }

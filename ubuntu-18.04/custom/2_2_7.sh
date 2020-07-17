@@ -7,5 +7,6 @@ function cis_test_run()
 {
 	cmd=$(systemctl is-enabled nfs-server | grep "Failed to get unit file state for nfs-server.service")
 	[ -z "$cmd" ] && return 1
+	
 	return 0
 }

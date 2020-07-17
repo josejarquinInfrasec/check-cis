@@ -7,8 +7,10 @@ function cis_test_run()
 {
 	cmd=$(systemctl is-enabled tmp.mount)
 	[ "$cmd" != "enabled" ] && return 1
+
 	cmd=$(mount | grep -E '\s/tmp\s')
 	[ -z "$cmd" ] && return 1
+	
 	return 0
 }
 

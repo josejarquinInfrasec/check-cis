@@ -7,5 +7,6 @@ function cis_test_run()
 {
 	cmd=$(grep -E -i -s "(\\\v|\\\r|\\\m|\\\s|$(grep '^ID=' /etc/os-release | cut -d= -f2 | sed -e 's/"//g'))" /etc/motd)
 	[ -n "$cmd" ] && return 1
+	
 	return 0
 }

@@ -8,6 +8,7 @@ function cis_test_run()
 {
 	cmd=$(dpkg -s ${package_name} 2>&1 | grep 'not installed')
 	[ -z "$cmd" ] && return 1
+	
 	return 0
 }
 

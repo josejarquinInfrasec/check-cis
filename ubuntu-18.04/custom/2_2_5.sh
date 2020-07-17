@@ -7,7 +7,9 @@ function cis_test_run()
 {
 	cmd=$(dpkg -s isc-dhcp-server 2>&1 | grep 'not installed')
 	[ -z "$cmd" ] && return 1
+
 	cmd=$(dpkg -s isc-dhcp-server6 2>&1 | grep 'not installed')
 	[ -z "$cmd" ] && return 1
+	
 	return 0
 }

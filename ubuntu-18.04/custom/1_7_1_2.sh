@@ -7,7 +7,9 @@ function cis_test_run()
 {
 	cmd=$(dmesg | grep "Command line" | grep -v 'apparmor=1')
 	[ -n "$cmd" ] && return 1
+
 	cmd=$(dmesg | grep "Command line" | grep -v 'security=apparmor')
 	[ -n "$cmd" ] && return 1
+	
 	return 0
 }

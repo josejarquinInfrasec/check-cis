@@ -7,6 +7,7 @@ function cis_test_run()
 {
 	cmd=$(systemctl is-enabled autofs)
 	[ "$cmd" != "disabled" ] && return 1
+	
 	return 0
 }
 

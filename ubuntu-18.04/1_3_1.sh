@@ -7,6 +7,7 @@ function cis_test_run()
 {
 	cmd=$(dpkg -s sudo | grep -i "status: install ok installed")
 	[ -z "$cmd" ] && return 1
+	
 	return 0
 }
 

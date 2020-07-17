@@ -7,5 +7,6 @@ function cis_test_run()
 {
 	cmd=$(systemctl is-enabled slapd)
 	[ "$cmd" != "disabled" ] && return 1
+	
 	return 0
 }

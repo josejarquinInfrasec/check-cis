@@ -7,5 +7,6 @@ function cis_test_run()
 {
 	cmd=$(stat /etc/issue | grep 'Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)')
 	[ -z "$cmd" ] && return 1
+	
 	return 0
 }

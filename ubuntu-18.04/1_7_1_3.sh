@@ -9,8 +9,10 @@ function cis_test_run()
 	enforced_profiles=$(apparmor_status | grep profiles | grep -Po '\d+(?=\s+profiles are in enforce mode)')
 	complain_profiles=$(apparmor_status | grep profiles | grep -Po '\d+(?=\s+profiles are in complain mode)')
 	((diff_profiles = total_profiles - enforced_profiles - complain_profiles))
-	[ ${diff_profiles} -ne 0 ] && return 1 
+	[ ${diff_profiles} -ne 0 ] && return 1
+
 	unconfined_processes=$(apparmor_status | grep processes | grep -Po '\d+(?=\s+processes are unconfined)')
-	[ ${unconfined_processes} -ne 0 ] && return 1 
+	[ ${unconfined_processes} -ne 0 ] && return 1
+	
 	return 0
 }

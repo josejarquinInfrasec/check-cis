@@ -7,6 +7,7 @@ function cis_test_run()
 {
 	cmd=$(stat /boot/grub/grub.cfg | grep 'Access: (0400/-r--------)  Uid: (    0/    root)   Gid: (    0/    root)')
 	[ -z "$cmd" ] && return 1
+	
 	return 0
 }
 

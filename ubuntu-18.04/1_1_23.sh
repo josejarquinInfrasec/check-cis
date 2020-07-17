@@ -8,8 +8,10 @@ function cis_test_run()
 {
 	cmd=$(modprobe -n -v ${kernel_module})
 	[ "$cmd" != "install /bin/true " ] && return 1
+
 	cmd=$(lsmod | grep ${kernel_module})
 	[ -n "$cmd" ] && return 1
+	
 	return 0
 }
 

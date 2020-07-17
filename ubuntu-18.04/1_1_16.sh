@@ -9,6 +9,7 @@ function cis_test_run()
 {
 	cmd=$(mount | grep -E "\s${partition}\s" | grep -v ${mount_opt})
 	[ -n "$cmd" ] && return 1
+	
 	return 0
 }
 

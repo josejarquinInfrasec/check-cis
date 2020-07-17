@@ -7,7 +7,9 @@ function cis_test_run()
 {
 	cmd=$(systemctl is-enabled isc-dhcp-server)
 	[ "$cmd" != "disabled" ] && return 1
+
 	cmd=$(systemctl is-enabled isc-dhcp-server6)
 	[ "$cmd" != "disabled" ] && return 1
+	
 	return 0
 }

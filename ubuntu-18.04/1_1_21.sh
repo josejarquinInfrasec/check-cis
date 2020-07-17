@@ -7,6 +7,7 @@ function cis_test_run()
 {
 	cmd=$(df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null)
 	[ -n "$cmd" ] && return 1
+	
 	return 0
 }
 
