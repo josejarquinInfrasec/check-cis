@@ -5,11 +5,11 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(dpkg -s apparmor apparmor-utils | grep -i '^status' | grep -vi 'status: install ok installed')
+	cmd=$(grep "^\s*linux" /boot/grub/grub.cfg | grep -v "apparmor=1" | grep -v '/boot/memtest86+.bin')
 	[ -n "$cmd" ] && return 1
 
 	cmd=$(grep "^\s*linux" /boot/grub/grub.cfg | grep -v "security=apparmor" | grep -v '/boot/memtest86+.bin')
 	[ -n "$cmd" ] && return 1
-	
+
 	return 0
 }
