@@ -141,11 +141,6 @@ function check_run_params()
         echo "ERROR: --cis-test requires action:execute"
         help
     fi
-
-    # if [ -n "${cis_policy_file}" -a ! -e "${cis_policy_file}" ]; then
-    #     echo "ERROR: policy file not found [${cis_policy_file}]"
-    #     exit ${EXIT_FAILURE}
-    # fi
 }
 
 function get_os_name()
@@ -191,10 +186,10 @@ function process_test_execute()
 
 function process_test()
 {
+    cis_test_id=$(basename $cis_test_file | cut -d'.' -f1)
+    cis_test_file_custom=${run_path}/${os_name}/custom/${cis_test_id}.sh
+    [ -e "${cis_test_file_custom}" ] && cis_test_file=${cis_test_file_custom}
     if [ -e "${cis_test_file}" ]; then
-        cis_test_id=$(basename $cis_test_file | cut -d'.' -f1)
-        cis_test_file_custom=${run_path}/${os_name}/custom/${cis_test_id}.sh
-        [ -e "${cis_test_file_custom}" ] && cis_test_file=${cis_test_file_custom}
         source ${cis_test_file}
         
         case "${cis_pa}" in
