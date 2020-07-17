@@ -9,13 +9,13 @@ function cis_test_run()
 	[ "$cmd" != "net.ipv4.ip_forward = 0" ] && return 1
     
 	cmd=$(grep -E -s "^\s*net\.ipv4\.ip_forward\s*=\s*1" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf)
-	[ -z "$cmd" ] && return 1
+	[ -n "$cmd" ] && return 1
   
 	cmd=$(sysctl net.ipv6.conf.all.forwarding)
 	[ "$cmd" != "net.ipv6.conf.all.forwarding = 0" ] && return 1
 	
   	cmd=$(grep -E -s "^\s*net\.ipv6\.conf\.all\.forwarding\s*=\s*1" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf)
-	[ -z "$cmd" ] && return 1
+	[ -n "$cmd" ] && return 1
 	
   	return 0
 }
