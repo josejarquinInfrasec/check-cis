@@ -142,10 +142,10 @@ function check_run_params()
         help
     fi
 
-    if [ -n "${cis_policy_file}" -a ! -e "${cis_policy_file}" ]; then
-        echo "ERROR: policy file not found [${cis_policy_file}]"
-        exit ${EXIT_FAILURE}
-    fi
+    # if [ -n "${cis_policy_file}" -a ! -e "${cis_policy_file}" ]; then
+    #     echo "ERROR: policy file not found [${cis_policy_file}]"
+    #     exit ${EXIT_FAILURE}
+    # fi
 }
 
 function get_os_name()
