@@ -6,6 +6,6 @@ cis_test_wpl=1
 function cis_test_run()
 {
 	cmd=$(dpkg -s apparmor apparmor-utils | grep -i '^status' | grep -vi 'status: install ok installed')
-	[ -z "$cmd" ] && return 1
+	[ -n "$cmd" ] && return 1
 	return 0
 }
