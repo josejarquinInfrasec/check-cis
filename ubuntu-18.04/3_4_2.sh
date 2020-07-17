@@ -6,7 +6,7 @@ cis_test_wpl=2
 function cis_test_run()
 {
 	cmd=$(modprobe -n -v sctp)
-	[ "$cmd" != "install /bin/true" ] && return 1
+	[ "$cmd" != "install /bin/true " ] && return 1
 
 	return 0
 }
