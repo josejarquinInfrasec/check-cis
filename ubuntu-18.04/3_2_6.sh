@@ -1,4 +1,4 @@
-cis_test_name="Ensure source routed packets are not accepted (Scored)"
+cis_test_name="Ensure bogus ICMP responses are ignored (Scored)"
 cis_test_pa=(server workstation)
 cis_test_spl=1
 cis_test_wpl=1
