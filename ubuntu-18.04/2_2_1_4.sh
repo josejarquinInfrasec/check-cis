@@ -5,7 +5,7 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(grep -P "^restrict (-4|-6) default kod nomodify notrap nopeer noquery" /etc/ntp.conf | wc -l)
+	cmd=$(grep -P "^restrict (-4|-6) default kod notrap nomodify nopeer noquery limited" /etc/ntp.conf | wc -l)
 	[ $cmd -ne 2 ] && return 1
 
 	cmd=$(grep -E "^(server|pool) ntp.ubuntu.com" /etc/ntp.conf)

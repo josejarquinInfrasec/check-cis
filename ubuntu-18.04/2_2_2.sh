@@ -6,7 +6,7 @@ cis_test_wpl=1
 function cis_test_run()
 {
 	cmd=$(dpkg -l xserver-xorg* 2>&1 | grep 'no packages found')
-	[ -n "$cmd" ] && return 1
+	[ -z "$cmd" ] && return 1
 	
 	return 0
 }
