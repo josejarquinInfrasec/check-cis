@@ -9,7 +9,7 @@ function cis_test_run()
 	[ "$cmd" != "951b08008f0bb667c2df815aee983db9  -" ] && return 1
 
 	cmd=$(auditctl -l | grep logins | md5sum)
-	[ "$cmd" != "1cae2a1bce415c00c7336f0de83a1a06  -" ] && return 1
+	[ "$cmd" != "951b08008f0bb667c2df815aee983db9  -" ] && return 1
 
 	return 0
 }
