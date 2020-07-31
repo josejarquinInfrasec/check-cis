@@ -5,8 +5,8 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(dpkg -s rsh-client | grep -i "status: install ok installed")
-	[ -z "$cmd" ] && return 1
+    cmd=$(dpkg -s rsh-client 2>&1 | grep 'not installed')
+    [ -z "$cmd" ] && return 1
 
-	return 0
+    return 0
 }
