@@ -6,7 +6,7 @@ cis_test_wpl=1
 function cis_test_run()
 {
 	cmd=$(systemctl is-enabled bind9)
-	[ "$cmd" != "disabled" ] && return 1
+	[ -z -o "$cmd" != "disabled" ] && return 1
 
 	return 0
 }
