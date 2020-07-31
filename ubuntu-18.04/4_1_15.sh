@@ -8,5 +8,8 @@ function cis_test_run()
 	cmd=$(grep actions /etc/audit/rules.d/*.rules | md5sum)
 	[ "$cmd" != "1cae2a1bce415c00c7336f0de83a1a06  -" ] && return 1
 
+	cmd=$(auditctl -l | grep actions | md5sum)
+	[ "$cmd" != "1cae2a1bce415c00c7336f0de83a1a06  -" ] && return 1
+
 	return 0
 }
