@@ -5,7 +5,7 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-    cmd=$(grep -E -i "^\s*ForwardToSyslog" /etc/systemd/journald.conf | grep "ForwardToSyslog=yes")
+    cmd=$(grep -E -i "^\s*ForwardToSyslog" /etc/systemd/journald.conf | grep "Compress=yes")
     [ -z "$cmd" ] && return 1
 
     return 0
