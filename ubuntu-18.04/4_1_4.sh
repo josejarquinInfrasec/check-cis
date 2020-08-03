@@ -1,5 +1,4 @@
-cis_test_name="Ensure events that modify user/group information are collected
-(Scored)"
+cis_test_name="Ensure events that modify user/group information are collected (Scored)"
 cis_test_pa=(server workstation)
 cis_test_spl=2
 cis_test_wpl=2
