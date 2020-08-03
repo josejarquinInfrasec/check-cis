@@ -1,5 +1,4 @@
-cis_test_name="Ensure permissions on /etc/ssh/sshd_config are configured
-(Scored)"
+cis_test_name="Ensure permissions on /etc/ssh/sshd_config are configured (Scored)"
 cis_test_pa=(server workstation)
 cis_test_spl=1
 cis_test_wpl=1
