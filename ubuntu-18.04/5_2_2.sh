@@ -6,7 +6,7 @@ cis_test_wpl=1
 function cis_test_run()
 {
 	cmd=$(find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec stat {} \; | grep "Access: (" | grep -v "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)")
-	[ -z "$cmd" ] && return 1
+	[ -n "$cmd" ] && return 1
 
 	return 0
 }
