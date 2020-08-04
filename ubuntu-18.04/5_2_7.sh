@@ -5,7 +5,7 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(sshd -T | grep "MaxAuthTries 4")
+	cmd=$(sshd -T | grep "maxauthtries 4")
 	[ -z "$cmd" ] && return 1
 
 	return 0
