@@ -190,7 +190,7 @@ function process_test()
     #cis_test_file_custom=${run_path}/${os_name}/custom/${cis_test_id}.sh
     #[ -e "${cis_test_file_custom}" ] && cis_test_file=${cis_test_file_custom}
 
-    cis_test_id=$(echo $cis_test_file | sed -e 's/\.sh//')
+    cis_test_id=$(echo $cis_test_file_name | sed -e 's/\.sh//')
     if [ -e "${run_path}/${os_name}/custom/${cis_test_file_name}" ]; then
         cis_test_file="${run_path}/${os_name}/custom/${cis_test_file_name}"
     else
