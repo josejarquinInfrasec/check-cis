@@ -224,7 +224,7 @@ function loop_tests()
         done
     else
         for cis_test_id in $(cat ${cis_policy_file} | cut -d'-' -f1); do
-            cis_test_file=${run_path}/${os_name}/${cis_test_id}.sh
+            cis_test_file_name=${cis_test_id}.sh
             process_test
         done
     fi
