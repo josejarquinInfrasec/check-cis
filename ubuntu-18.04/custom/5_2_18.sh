@@ -3,6 +3,20 @@ cis_test_pa=(server workstation)
 cis_test_spl=1
 cis_test_wpl=1
 
+######################################################
+#  sshd -T | grep -P "^(allowusers|denyusers|allowgroups|denygroups)"
+######################################################
+#  denyusers ubuntu,root
+#  allowgroups cloudadmin
+#  allowgroups root
+#  allowgroups sudo
+#  allowgroups despegar
+#  allowgroups munin
+#  allowgroups munin-async
+#  allowgroups sox
+#  denygroups ubuntu
+######################################################
+
 function cis_test_run()
 {
 	cmd=$(sshd -T | grep -P "^(allowusers|denyusers|allowgroups|denygroups)" | md5sum)
