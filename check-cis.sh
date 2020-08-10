@@ -238,7 +238,7 @@ function action_list()
 function action_execute()
 {
     if [ -n "${cis_test_id}" ]; then
-        cis_test_file=${run_path}/${os_name}/${cis_test_id}.sh
+        cis_test_file_name=${cis_test_id}.sh
         process_test
     else
         loop_tests
