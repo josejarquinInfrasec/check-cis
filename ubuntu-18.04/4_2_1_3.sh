@@ -3,6 +3,20 @@ cis_test_pa=(server workstation)
 cis_test_spl=1
 cis_test_wpl=1
 
+#########################################################
+# /etc/rsyslog.d/50-default.conf						#
+#########################################################
+#auth,authpriv.*                 /var/log/auth.log		#
+#*.*;auth,authpriv.none          -/var/log/syslog		#
+#kern.*                          -/var/log/kern.log		#
+#mail.*                          -/var/log/mail.log		#
+#														#
+#mail.err                        /var/log/mail.err		#
+#														#
+#														#
+#*.emerg                         :omusrmsg:*			#
+#########################################################
+
 function cis_test_run()
 {
   #  auth,authpriv.*			/var/log/auth.log
