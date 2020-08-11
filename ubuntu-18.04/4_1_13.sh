@@ -1,4 +1,4 @@
-cis_test_name="Ensure unsuccessful unauthorized file access attempts are collected (Scored)"
+cis_test_name="Ensure file deletion events by users are collected (Scored)"
 cis_test_pa=(server workstation)
 cis_test_spl=2
 cis_test_wpl=2
