@@ -12,7 +12,7 @@ function cis_test_run()
 	[ "$cmd" != "fs.suid_dumpable = 0" ] && return 1
 
 	cmd=$(grep "fs\.suid_dumpable" /etc/sysctl.conf /etc/sysctl.d/* | grep -v 'fs.suid_dumpable = 0')
-	[ -z "$cmd" ] && return 1
+	[ -n "$cmd" ] && return 1
 	
 	return 0
 }
