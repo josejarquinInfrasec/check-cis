@@ -7,7 +7,7 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(mount | grep -E "\s${partition}\s" | grep -v ${mount_opt})
+	cmd=$(mount | grep -E "\s${partition}\s" | grep -v ${mount_option})
 	[ -n "$cmd" ] && return 1
 	
 	return 0
