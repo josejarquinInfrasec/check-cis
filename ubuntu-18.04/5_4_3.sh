@@ -1,4 +1,4 @@
-cis_test_name="Ensure default group for the root account is GID 0 (Scored) "
+cis_test_name="Ensure default group for the root account is GID 0 (Scored)"
 cis_test_pa=(server workstation)
 cis_test_spl=1
 cis_test_wpl=1
