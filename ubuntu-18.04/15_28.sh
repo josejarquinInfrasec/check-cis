@@ -3,7 +3,8 @@ cis_test_pa=(server workstation)
 cis_test_spl=1
 cis_test_wpl=1
 
-function cis_test_run() {
+function cis_test_run()
+{
   # -a always,exit -F arch=b32 -S execve -F key=audit-wazuh-c
   # -a always,exit -F arch=b64 -S execve -F key=audit-wazuh-c
   cmd=$(grep execve /etc/audit/rules.d/*.rules | md5sum)
