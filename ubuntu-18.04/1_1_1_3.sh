@@ -5,7 +5,7 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(modprobe -n -v jffs2)
+	cmd=$(modprobe -n -v jffs2 | grep -v mtd)
 	[ "$cmd" != "install /bin/true " ] && return 1
 
 	cmd=$(lsmod | grep jffs2)
