@@ -8,7 +8,7 @@ function cis_test_run()
 	cmd=$(sysctl kernel.randomize_va_space)
 	[ "$cmd" != "kernel.randomize_va_space = 2" ] && return 1
 
-	cmd=$(grep "kernel\.randomize_va_space" /etc/sysctl.conf /etc/sysctl.d/* | grep -v 'kernel.randomize_va_space = 2')
+	cmd=$(grep "kernel\.randomize_va_space" /etc/sysctl.conf /etc/sysctl.d/* | grep -v 'kernel.randomize_va_space\s*=\s*2')
 	[ -n "$cmd" ] && return 1
 	
 	return 0
