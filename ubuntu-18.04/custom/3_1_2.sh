@@ -11,7 +11,7 @@ function cis_test_run()
 	cmd=$(grep -E -s "^\s*net\.ipv4\.ip_forward\s*=\s*1" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf)
 	[ -n "$cmd" ] && return 1
   
-	cmd=$(sysctl net.ipv6.conf.all.forwarding 2>&1 | grep "cannot stat")
+	cmd=$(sysctl net.ipv6.conf.all.forwarding | grep -v "net.ipv6.conf.all.forwarding\s*=\s*0")
 	[ -z "$cmd" ] && return 1
 	
   	cmd=$(grep -E -s "^\s*net\.ipv6\.conf\.all\.forwarding\s*=\s*1" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf)
