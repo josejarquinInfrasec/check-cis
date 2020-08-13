@@ -5,7 +5,7 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(sysctl net.ipv6.conf.all.accept_ra 2>&1 | grep "cannot stat")
+	cmd=$(sysctl net.ipv6.conf.all.accept_ra 2>&1 | grep -v "net.ipv6.conf.all.accept_ra\s*=\s*0")
 	[ -z "$cmd" ] && return 1
 
 	cmd=$(sysctl net.ipv6.conf.default.accept_ra 2>&1 | grep "cannot stat")
