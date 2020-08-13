@@ -65,10 +65,10 @@ function cis_test_run()
 	
 	if [ "$cloudiaguest" == "kvm" ]; then
 		cmd=$(df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type f -perm -4000 | md5sum)
-		[ "$cmd" != "41490c584644f60330e9a26e0e9d6055  -" ] && return 1
+		[ "$cmd" != "6c5ce88740e397ff4ba13e3ea971285e  -" ] && return 1
 	then
 		cmd=$(df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type f -perm -4000 | md5sum)
-		[ "$cmd" != "6c5ce88740e397ff4ba13e3ea971285e  -" ] && return 1
+		[ "$cmd" != "41490c584644f60330e9a26e0e9d6055  -" ] && return 1
 	fi
 	
 	return 0
