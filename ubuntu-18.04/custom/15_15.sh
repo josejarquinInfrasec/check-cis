@@ -1,4 +1,4 @@
-cis_test_name="Ensure SSH gssapiauthentication is not configured"
+cis_test_name="Ensure SSH GSSAPIAuthentication is not configured"
 cis_test_pa=(server workstation)
 cis_test_spl=1
 cis_test_wpl=1
