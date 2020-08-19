@@ -5,8 +5,10 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(stat /etc/motd | grep 'Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)')
-	[ -z "$cmd" ] && return 1
+	if [ -e "/etc/motd" ]; then
+		cmd=$(stat /etc/motd | grep 'Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)')
+		[ -z "$cmd" ] && return 1
+	fi
 	
 	return 0
 }
