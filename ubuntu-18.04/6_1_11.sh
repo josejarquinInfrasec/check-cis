@@ -5,7 +5,8 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -nouser)
+	# Se exceptuan los archivos de systemd, confirmados por el equipo de Cloud
+	cmd=$(df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -nouser | grep -v "/var/lib/private/systemd")
 	[ -n "$cmd" ] && return 1
 
 	return 0
