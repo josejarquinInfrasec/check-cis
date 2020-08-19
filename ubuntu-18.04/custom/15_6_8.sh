@@ -1,4 +1,4 @@
-cis_test_name="Ensure user despegar is not in group adm"
+cis_test_name="Ensure user despegar is not in adm group"
 cis_test_pa=(server workstation)
 cis_test_spl=1
 cis_test_wpl=1
