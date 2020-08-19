@@ -8,7 +8,7 @@ function cis_test_run()
 	cmd=$(sysctl net.ipv4.icmp_echo_ignore_broadcasts)
 	[ "$cmd" != "net.ipv4.icmp_echo_ignore_broadcasts = 1" ] && return 1
 
-	cmd=$(grep "net\.ipv4\.icmp_echo_ignore_broadcasts" /etc/sysctl.conf /etc/sysctl.d/* | grep -v "#" | grep -v "net.ipv4.icmp_echo_ignore_broadcasts = 1")
+	cmd=$(grep "net\.ipv4\.icmp_echo_ignore_broadcasts" /etc/sysctl.conf /etc/sysctl.d/* | grep -v "#" | grep -v "net.ipv4.icmp_echo_ignore_broadcasts\s*=\s*1")
 	[ -n "$cmd" ] && return 1
 	
 	return 0
