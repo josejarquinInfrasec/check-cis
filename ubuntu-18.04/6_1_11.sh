@@ -9,7 +9,9 @@ function cis_test_run()
 	# https://www.buihanotes.com/2019/05/technical-memo-dynamicuser-in-systemd.html
 	# /var/lib/private/systemd/timesync
 	# /var/lib/private/systemd/timesync/clock
-	cmd=$(df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -nouser | grep -v "/var/lib/private/systemd")
+	# Se exceptuan los directorios personales ya que no se eliminan por politica
+	# /home/*
+	cmd=$(df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -nouser | grep -vP "(/var/lib/private/systemd|/home)")
 	[ -n "$cmd" ] && return 1
 
 	return 0
