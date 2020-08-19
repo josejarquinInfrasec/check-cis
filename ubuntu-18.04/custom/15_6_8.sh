@@ -5,8 +5,8 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(/usr/bin/groups despegar | grep -P "\sadm\s?")
-	[ -z "$cmd" ] && return 1
+	cmd=$(groups despegar | grep -P "\sadm\s?")
+	[ -n "$cmd" ] && return 1
 
 	return 0
 }
