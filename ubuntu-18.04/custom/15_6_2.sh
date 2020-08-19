@@ -11,9 +11,6 @@ function cis_test_run()
 		cmd=$(stat /var/log/puppetlabs/mcollective/mcollective.log | grep 'Access: (0640/-rw-r-----)  Uid: (    0/    root)   Gid: (    0/    root)')
 		[ -z "$cmd" ] && return 1
 
-		cmd=$(stat /var/log/cloud-init.log | grep 'Access: (0640/-rw-r-----)  Uid: (    0/    root)   Gid: (    0/    root)')
-		[ -z "$cmd" ] && return 1
-
 		cmd=$(stat /var/log/apt/history.log | grep 'Access: (0640/-rw-r-----)  Uid: (    0/    root)   Gid: (    0/    root)')
 		[ -z "$cmd" ] && return 1
 
