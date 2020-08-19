@@ -6,6 +6,7 @@ cis_test_wpl=1
 function cis_test_run()
 {
 	# Se exceptuan los archivos de systemd, confirmados por el equipo de Cloud
+	# https://www.buihanotes.com/2019/05/technical-memo-dynamicuser-in-systemd.html
 	cmd=$(df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -nogroup | grep -v "/var/lib/private/systemd")
 	[ -n "$cmd" ] && return 1
 
