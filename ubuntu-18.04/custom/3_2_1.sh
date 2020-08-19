@@ -18,7 +18,7 @@ function cis_test_run()
 	[ -n "$cmd" ] && return 1
 
 	cmd=$(sysctl net.ipv6.conf.all.accept_source_route 2>&1)
-	[ "$cmd" != "net.ipv6.conf.default.accept_source_route = 0" -a -n "$(echo $cmd | grep -v 'cannot stat')" ] && return 1
+	[ "$cmd" != "net.ipv6.conf.all.accept_source_route = 0" -a -n "$(echo $cmd | grep -v 'cannot stat')" ] && return 1
 	
 	cmd=$(sysctl net.ipv6.conf.default.accept_source_route 2>&1)
 	[ "$cmd" != "net.ipv6.conf.default.accept_source_route = 0" -a -n "$(echo $cmd | grep -v 'cannot stat')" ] && return 1
