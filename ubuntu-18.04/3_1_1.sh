@@ -15,7 +15,6 @@ function cis_test_run()
 	[ -n "$cmd" ] && return 1
 
 	cmd=$(grep -v "^#" /etc/sysctl.conf /etc/sysctl.d/* | grep 'net.ipv4.conf.default.send_redirects' | grep -vP "net.ipv4.conf.default.send_redirects\s*=\s*0")
-	cmd=$(grep "net\.ipv4\.conf\.default\.send_redirects" /etc/sysctl.conf /etc/sysctl.d/* | grep -v "#" | grep -v "net.ipv4.conf.default.send_redirects = 0")
 	[ -n "$cmd" ] && return 1
 	
 	return 0
