@@ -11,10 +11,10 @@ function cis_test_run()
 	cmd=$(sysctl net.ipv4.conf.default.send_redirects)
 	[ "$cmd" != "net.ipv4.conf.default.send_redirects = 0" ] && return 1
 
-	cmd=$(grep -v "^#" /etc/sysctl.conf /etc/sysctl.d/* | grep 'net.ipv4.conf.all.send_redirects' | grep -vP "net.ipv4.conf.all.send_redirects\s*=\s*0")
+	cmd=$(grep -h 'net.ipv4.conf.all.send_redirects' /etc/sysctl.d/* | grep -v '^#' | grep -vP "=\s*0")
 	[ -n "$cmd" ] && return 1
 
-	cmd=$(grep -v "^#" /etc/sysctl.conf /etc/sysctl.d/* | grep 'net.ipv4.conf.default.send_redirects' | grep -vP "net.ipv4.conf.default.send_redirects\s*=\s*0")
+	cmd=$(grep -h 'net.ipv4.conf.default.send_redirects' /etc/sysctl.d/* | grep -v '^#' | grep -vP "=\s*0")
 	[ -n "$cmd" ] && return 1
 	
 	return 0
