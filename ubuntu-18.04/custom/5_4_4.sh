@@ -5,7 +5,7 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(grep -i "UMASK   027" /etc/login.defs)
+	cmd=$(grep -iP "UMASK\s*027" /etc/login.defs)
 	[ -z "$cmd" ] && return 1
 
 	return 0
