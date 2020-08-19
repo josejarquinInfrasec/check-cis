@@ -5,8 +5,13 @@ cis_test_wpl=2
 
 function cis_test_run()
 {
-	cmd=$(dmesg | grep "Command line" | grep -v 'ipv6.disable=1')
-	[ -n "$cmd" ] && return 1
+	if [ -e "/etc/default/grub.d/89-ipv6-disable.cfg" ]; then
+		cmd=$(grep "GRUB_CMDLINE_LINUX_DEFAULT=.*ipv6.disable=1.*" /etc/default/grub.d/89-ipv6-disable.cfg)
+		[ -z "$cmd" ] && return 1
+	fi
+
+	cmd=$(grep -h disable_ipv6 /etc/sysctl.d/* | grep -Po "=\s*1")
+	[ -z "$cmd" ] && return 1
 
 	return 0
 }
