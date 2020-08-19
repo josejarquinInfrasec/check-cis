@@ -5,7 +5,9 @@ cis_test_wpl=1
 
 function cis_test_run()
 {
-	cmd=$(df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null)
+	# Se exceptua el directorio utilizado por openstack
+	# directorio /run/netns
+	cmd=$(df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null | grep -v "/run/netns")
 	[ -n "$cmd" ] && return 1
 	
 	return 0
