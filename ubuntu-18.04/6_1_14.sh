@@ -32,7 +32,7 @@ function cis_test_run()
 		[ "$cmd" != "2bca50da59920b937deb66e7b6aa9f78  -" ] && return 1
 	else
 		cmd=$(df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type f -perm -2000 | sort | md5sum)
-		[ "$cmd" != "2bca50da59920b937deb66e7b6aa9f78  -" ] && return 1
+		[ "$cmd" != "fc0bde6e986bac4dc58eb309cc1209f8  -" ] && return 1
 	fi
 
 	return 0
