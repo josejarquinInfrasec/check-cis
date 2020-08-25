@@ -7,16 +7,14 @@ function cis_test_run()
 {
 	# /etc/apt/trusted.gpg
 	# --------------------
-	# pub   rsa4096 2016-08-01 [SC] [expires: 2027-05-15]
-	#       0DCF CA55 47B1 9D2A 6099  5060 96B3 EE5F 2911 1145
-	# uid           [ unknown] Wazuh.com (Wazuh Signing Key) <support@wazuh.com>
-	# sub   rsa4096 2016-08-01 [E] [expires: 2027-05-15]
-	# /etc/apt/trusted.gpg.d/ubuntu-keyring-2018-archive.gpg
-	# ------------------------------------------------------
-	# pub   rsa4096 2018-09-17 [SC]
-	#       F6EC B376 2474 EDA9 D21B  7022 8719 20D1 991B C93C
-	# uid           [ unknown] Ubuntu Archive Automatic Signing Key (2018) <ftpmaster@ubuntu.com>
-	cmd=$(apt-key list 2>&1 | grep -P "(0DCF CA55 47B1 9D2A 6099  5060 96B3 EE5F 2911 1145|F6EC B376 2474 EDA9 D21B  7022 8719 20D1 991B C93C)" | md5sum)
+	# pub   1024D/437D05B5 2004-09-12
+	# uid                  Ubuntu Archive Automatic Signing Key <ftpmaster@ubuntu.com>
+	# sub   2048g/79164387 2004-09-12
+
+	# pub   4096R/29111145 2016-08-01 [expires: 2027-05-15]
+	# uid                  Wazuh.com (Wazuh Signing Key) <support@wazuh.com>
+	# sub   4096R/664FAB32 2016-08-01 [expires: 2027-05-15]
+	cmd=$(apt-key list 2>&1 | grep -P "(4096R/29111145|1024D/437D05B5)" | md5sum)
 	[ "$cmd" != "a4f7528f5e5cb5bc9ebe9cac93e5873a  -"  ] && return 1
 	
 	return 0
