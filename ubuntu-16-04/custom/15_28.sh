@@ -7,7 +7,7 @@ function cis_test_run()
 {
   # -a always,exit -F arch=b32 -S execve -F key=audit-wazuh-c
   # -a always,exit -F arch=b64 -S execve -F key=audit-wazuh-c
-  cmd=$(grep execve /etc/audit/rules.d/*.rules | md5sum)
+  cmd=$(grep -h execve /etc/audit/rules.d/*.rules /etc/audit/audit.rules | sort -u | md5sum)
   [ "$cmd" != "7015a5493a6628aa416e7320d763a5f1  -" ] && return 1
   # -a always,exit -F arch=b32 -S execve -F key=audit-wazuh-c
   # -a always,exit -F arch=b64 -S execve -F key=audit-wazuh-c
