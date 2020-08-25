@@ -15,14 +15,14 @@ function cis_test_run()
     case "$environment_name" in
       pci)
         if [ "$cloudiaguest" == "kvm" ]; then
-          host_ip=$(ifconfig ens3 | grep -Po '(?<=inet\s)[\.\d]+')
+          host_ip=$(ip address show ens3 | grep -Po '(?<=inet\s)[\.\d]+')
           cmd=$(grep -P "^\d+\s$(hostname)\s${host_ip}\s.{64}" /var/ossec/etc/client.keys)
           [ -z "$cmd" ] && return 1
 
           cmd=$(cat /var/ossec/etc/shared/agent.conf | md5sum)
           [ "$cmd" != "eef3cc10a70e78d68a505f0a380504df  -" ] && return 1
         else
-          host_ip=$(ifconfig bond0 | grep -Po '(?<=inet\s)[\.\d]+')
+          host_ip=$(ip address show bond0 | grep -Po '(?<=inet\s)[\.\d]+')
           cmd=$(grep -P "^\d+\s$(hostname)\s${host_ip}\s.{64}" /var/ossec/etc/client.keys)
           [ -z "$cmd" ] && return 1
 
@@ -34,7 +34,7 @@ function cis_test_run()
       prod)
         if [ "$cloudiaguest" == "kvm" ]; then
           if [ "$environment_openstack" == "queens" ]; then
-            host_ip=$(ifconfig ens3 | grep -Po '(?<=inet\s)[\.\d]+')
+            host_ip=$(ip address show ens3 | grep -Po '(?<=inet\s)[\.\d]+')
             cmd=$(grep -P "^\d+\s$(hostname)\s${host_ip}\s.{64}" /var/ossec/etc/client.keys)
             [ -z "$cmd" ] && return 1
           fi
