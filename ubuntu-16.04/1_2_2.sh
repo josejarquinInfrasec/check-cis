@@ -15,7 +15,7 @@ function cis_test_run()
 	# uid                  Wazuh.com (Wazuh Signing Key) <support@wazuh.com>
 	# sub   4096R/664FAB32 2016-08-01 [expires: 2027-05-15]
 	cmd=$(apt-key list 2>&1 | grep -P "(4096R/29111145|1024D/437D05B5)" | md5sum)
-	[ "$cmd" != "a4f7528f5e5cb5bc9ebe9cac93e5873a  -"  ] && return 1
+	[ "$cmd" != "f84a4d6256871f574c66190590b1a228  -"  ] && return 1
 	
 	return 0
 }
