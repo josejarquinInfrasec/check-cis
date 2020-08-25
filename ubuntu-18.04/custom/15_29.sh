@@ -6,7 +6,8 @@ cis_test_wpl=1
 function cis_test_run()
 {
   if [[ "$(hostname)" != "soc-wazuh-mg-"* ]]; then
-    cloudiaguest=$(grep -Po '(?<=cloudiaguest:\s)\w+' /etc/puppetlabs/mcollective/generated-facts.yaml)
+    #cloudiaguest=$(grep -Po '(?<=cloudiaguest:\s)\w+' /etc/puppetlabs/mcollective/generated-facts.yaml)
+    cloudiaguest=$(facter -p cloudiaguest)
 
     if [ "$cloudiaguest" == "kvm" ]; then
       host_ip=$(ifconfig ens3 | grep -Po '(?<=inet\s)[\.\d]+')
