@@ -5,7 +5,7 @@ cis_test_wpl=2
 
 function cis_test_run()
 {
-	cmd=$(grep "max_log_file = 8" /etc/audit/auditd.conf)
+	cmd=$(grep "max_log_file = 5" /etc/audit/auditd.conf)
 	[ -z "$cmd" ] && return 1
 
 	return 0
