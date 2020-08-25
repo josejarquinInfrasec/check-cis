@@ -1,4 +1,4 @@
-cis_test_name="Ensure events that modify the system's Mandatory Access Controls are collected (Scored)"
+cis_test_name="Ensure events that modify the system Mandatory Access Controls are collected (Scored)"
 cis_test_pa=(server workstation)
 cis_test_spl=2
 cis_test_wpl=2
