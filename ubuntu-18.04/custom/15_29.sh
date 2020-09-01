@@ -20,7 +20,7 @@ function cis_test_run()
           [ -z "$cmd" ] && return 1
 
           cmd=$(cat /var/ossec/etc/shared/agent.conf | md5sum)
-          [ "$cmd" != "eef3cc10a70e78d68a505f0a380504df  -" ] && return 1
+          [ "$cmd" != "b1aee6d37f18e6955d8936425a09620a  -" ] && return 1
         else
           host_ip=$(ip address show bond0 | grep -Po '(?<=inet\s)[\.\d]+')
           cmd=$(grep -P "^\d+\s$(hostname)\s${host_ip}\s.{64}" /var/ossec/etc/client.keys)
