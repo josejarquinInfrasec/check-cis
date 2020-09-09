@@ -40,7 +40,7 @@ function cis_test_run()
           fi
 
           cmd=$(cat /var/ossec/etc/shared/agent.conf | md5sum)
-          [ "$cmd" != "9eb74877895a5d982dfbe825651b7a91  -" ] && return 1
+          [ "$cmd" != "21e06d9b957524b85d438a0c82dfe5ba  -" ] && return 1
         fi
       ;;
     esac
