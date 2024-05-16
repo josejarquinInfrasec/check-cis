@@ -172,7 +172,8 @@ function process_test_list()
 
 function process_test_execute()
 {
-    if [ "${verbose}" -eq ${TRUE} ]; then
+    get_hostname=$(hostname)
+	if [ "${verbose}" -eq ${TRUE} ]; then
         cis_test_run
     else
         cis_test_run 2>/dev/null
@@ -180,7 +181,7 @@ function process_test_execute()
     [ $? -eq ${EXIT_SUCCESS} ] && cis_test_status="SUCCESS" || cis_test_status="FAILURE"
 
     if [[ ($only_fail -eq $FALSE) || ($only_fail -eq $TRUE && $cis_test_status == "FAILURE") ]]; then
-        echo "CIS_TEST_ID=\"${cis_test_id}\" CIS_TEST_NAME=\"${cis_test_name}\" CIS_TEST_STATUS=\"${cis_test_status}\""
+        echo "CIS_ID=\"${cis_test_id}\",CIS_NAME=\"${cis_test_name}\",STATUS=\"${cis_test_status}\",OS=\"${os_name}\",HOSTNAME=\"${get_hostname}\""
     fi
 }
 
