@@ -18,6 +18,11 @@ The script can be easily extendend adding the unitary tests for a specific Linux
 At the time of writing, only Ubuntu 18.04 CIS 2.0.1 is supported (work in progress).
 </pre>
 
+<pre>
+Infrasec
+Se ha actualizado el script para evaluar las instancias Ubuntu 22.04 de acuerdo al estándar "SI.STD.039 Estándar de Seguridad Ubuntu Server 22.04 AWS v1.1" de Despegar.
+</pre>
+
 **EXAMPLES**
 ---------------------------------------------------------
 <pre>
